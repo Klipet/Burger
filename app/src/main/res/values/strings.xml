@@ -2,4 +2,7 @@
     <string name="app_name">Burger</string>
     <string name="chisinau_md">Chisinau MD</string>
     <string name="todo">TODO</string>
+    <string name="search_our_delicious_burgers">Search our delicious burgers</string>
+    <string name="let_s_get_your_order">Let’s get your order</string>
+    <string name="hey">Hey!</string>
 </resources>

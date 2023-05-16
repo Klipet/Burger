@@ -25,32 +25,38 @@
         <ImageButton
             android:id="@+id/ibMunu"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_marginTop="6dp"
             android:background="@color/white_sur"
             android:contentDescription="@string/todo"
+
+            android:scrollbarSize="0dp"
             app:srcCompat="@drawable/menu" />
 
         <ImageButton
             android:id="@+id/ibLocation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="32dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="9dp"
             android:layout_weight="1"
             android:background="@color/white_sur"
             android:contentDescription="@string/todo"
-            app:srcCompat="@drawable/vector" />
+            android:onClick="buttonLocation"
+            android:scrollbarSize="15dp"
+            app:srcCompat="@drawable/vector"
+            tools:ignore="UsingOnClickInXml" />
 
         <TextView
             android:id="@+id/tvLocationName"
-            android:layout_width="89dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="9dp"
             android:elevation="4dp"
             android:text="@string/chisinau_md"
             android:textColor="@color/black"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
         <ImageView
@@ -82,23 +88,25 @@
             android:layout_height="wrap_content"
             android:paddingStart="15dp"
             android:paddingTop="15dp"
-            android:text="Hey!"
+            android:text="@string/hey"
             android:textColor="@color/black"
             android:textSize="30dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/tvUor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="15dp"
-            android:text="Let’s get your order"
+            android:text="@string/let_s_get_your_order"
             android:textColor="@color/surser"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -108,27 +116,29 @@
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton5"
-            android:layout_width="wrap_content"
+        <SearchView
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/white"
-            android:clickable="true"
-            android:hapticFeedbackEnabled="false"
-            app:backgroundTint="@color/white"
-            app:elevation="0dp"
-            app:fabSize="mini"
-            app:srcCompat="@drawable/search_24" />
+            android:contentDescription="@string/search_our_delicious_burgers"
+            android:onClick="search"
+            android:tag="Search our delicious burgers"
+            android:textAlignment="textEnd"
+            tools:ignore="UsingOnClickInXml" />
 
-        <EditText
-            android:id="@+id/editTextText3"
-            android:layout_width="305dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="174dp"
+        android:layout_marginTop="24dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
