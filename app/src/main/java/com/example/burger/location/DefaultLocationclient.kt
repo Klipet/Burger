@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.location.Location
 import android.location.LocationManager
-import android.location.LocationRequest
+import android.os.Build
 import android.os.Looper
+import androidx.annotation.RequiresApi
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.launch
@@ -18,6 +20,8 @@ class DefaultLocationclient(
     private val client: FusedLocationProviderClient
 ): LocationClient {
 
+
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     @SuppressLint("ServiceCast", "MissingPermission")
     override fun getlcationUpdates(interval: Long): Flow<Location> {
         return callbackFlow {
@@ -49,6 +53,10 @@ class DefaultLocationclient(
                 locationCallback,
                 Looper.getMainLooper()
             )
+
+            awaitClose{
+                client.removeLocationUpdates(locationCallback)
+            }
 
         }
 
